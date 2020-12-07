@@ -31,14 +31,19 @@ export default function AllocationPanel() {
     <>
       {!data && <Loading />}
       <Chart style={{ opacity: data ? "1" : "0" }}>
-        <ChartTitle text={"Asset Allocation"}></ChartTitle>
-        <ChartSeries>
-          <ChartSeriesItem type="donut" data={data}>
-            <ChartSeriesLabels content={labelContent} background="none" color="#fff" />
-          </ChartSeriesItem>
-        </ChartSeries>
-        <ChartLegend position={"bottom"} visible={true} />
-        <ChartTooltip render={renderTooltip} />
+      <ChartTitle text={"Asset Allocation"}></ChartTitle>
+  <ChartSeries>
+    <ChartSeriesItem type="donut" data={data}>
+    <ChartSeriesLabels
+      content={e => `${e.value}%`}
+      background="none"
+      color="#fff" />
+    </ChartSeriesItem>
+  </ChartSeries>
+  <ChartLegend position={"bottom"} visible={true} />
+  <ChartTooltip render={(e: any) => (
+    <div>{e.point ? e.point.category : ""}</div>
+  )} />
       </Chart>
     </>
   )

@@ -17,14 +17,14 @@ const NumberCell = (props: GridCellProps) => {
 }
 
 const ChangeCell = (props: GridCellProps) => {
-  const field = props.field || "";
-  const value = props.dataItem[field];
+  const value = props.dataItem[props.field || ""];
   return (
-    <td className={value > 0 ? "change-up" : "change-down"}>
+    <td style={{ color: value > 0 ? "green" : "red" }}>
       {value}%
     </td>
-  );
+  )
 }
+
 
 export default function PositionsPanel() {
   const [positions, setPositions] = React.useState<Position[]>();
