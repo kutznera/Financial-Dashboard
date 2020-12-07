@@ -1,23 +1,19 @@
+.panels > div {
+  // Add a black border around each panel for debugging
+  border: 1px solid black;
+}
+
 .panels {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 225px auto auto;
-  grid-template-rows: auto auto auto;
+  grid-template-rows: auto auto;
 }
 .panel-info {
   grid-row: span 2;
 }
-.panel-allocation {
-  
-}
-.panel-balance {
-  
-}
 .panel-positions {
   grid-column: span 2;
-}
-.panels > div {
-  /* border: 1px solid black; */
 }
 
 @media (max-width: 750px) {
